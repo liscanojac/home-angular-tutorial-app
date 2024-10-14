@@ -1,0 +1,10 @@
+<section>
+  <form>
+    <input type="text" name="city" id="city" placeholder="Filter by city">
+    <button class="primary" type="button">Search</button>
+  </form>
+</section>
+<section class="results">
+  <app-housing-location *ngFor="let housingLocation of housingLocationList" [housingLocation]="housingLocation"></app-housing-location>
+  <!-- here you can see that the ngFor already loops through the house list and you can pass the variable just loike that -->
+</section>
