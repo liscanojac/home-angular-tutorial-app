@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HousingLocation } from './housing-location';
+import { ApplyForm } from './apply-form';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HousingService {
+
+  protected applicationForm: ApplyForm = {
+    firstName: '',
+    lastName: '',
+    email: ''
+  };
 
   protected housingLocationList: Array<HousingLocation> = [
     {
@@ -117,5 +124,9 @@ export class HousingService {
 
   getHousingLocationById(id: number): HousingLocation | undefined {
     return this.housingLocationList.find(housingLocation => housingLocation.id === id);
+  }
+
+  submitAplication(applyForm: ApplyForm) {
+    this.applicationForm = applyForm;
   }
 }
